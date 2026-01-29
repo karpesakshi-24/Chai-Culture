@@ -1,0 +1,858 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(
+      1200px circle at top,
+      rgba(201, 169, 110, 0.1),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #F5F5DC, #DAA520);
+  color: #8B7355;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 30px;
+  text-align: center;
+  position: relative;
+}
+
+
+
+/* TAGLINE */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: #8B7355;
+  letter-spacing: 0.3px;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 4px rgba(201, 169, 110, 0.3);
+}
+
+
+.desc {
+  max-width: 520px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(139, 115, 85, 0.8);
+  margin-bottom: 28px;
+}
+
+
+/* LAUNCH BADGE */
+.badge {
+  background: rgba(201, 169, 110, 0.2);
+  color: #C9A96E;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  margin-bottom: 32px;
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  box-shadow: 0 4px 8px rgba(201, 169, 110, 0.2);
+}
+
+
+/* EMAIL */
+.email-box input {
+  background: rgba(255, 255, 255, 0.1);
+  color: #8B7355;
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  border-radius: 25px;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+
+.email-box input::placeholder {
+  color: rgba(139, 115, 85, 0.5);
+}
+
+.email-box button {
+  background: linear-gradient(135deg, #C9A96E, #A0855B);
+  color: #F5F5DC;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(201, 169, 110, 0.3);
+}
+
+.email-box button:hover {
+  background: linear-gradient(135deg, #D4B57A, #B4956A);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(201, 169, 110, 0.4);
+}
+
+/* IMAGES */
+.images {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.images img {
+  width: 160px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(201, 169, 110, 0.3);
+  transition: all 0.4s ease;
+}
+
+.images img:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(201, 169, 110, 0.4);
+}
+
+/* SOCIAL ICONS */
+.socials a {
+  color: rgba(139, 115, 85, 0.7);
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  color: #C9A96E;
+  transform: scale(1.1);
+}
+
+
+/* ANIMATION */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .images img {
+    width: 130px;
+  }
+
+  .email-box {
+    flex-direction: column;
+  }
+}
+
+/* ===================================
+   CSS Variables & Root Styles
+   =================================== */
+:root {
+  /* Royal Color Palette */
+  --gold-primary: #D4AF37;
+  --gold-light: #F4E4B8;
+  --gold-dark: #B8941F;
+  --maroon-deep: #6B1820;
+  --maroon-medium: #8B2635;
+  --brown-rich: #5C4033;
+  --brown-light: #8B7355;
+  --cream: #FAF7F0;
+  --cream-dark: #EDE7D9;
+  --black-soft: #1A1614;
+  --white-warm: #FFFEF9;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  
+  /* Typography */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+/* ===================================
+   App Container
+   =================================== */
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--maroon-deep) 0%, var(--brown-rich) 50%, var(--maroon-medium) 100%);
+  color: var(--cream);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===================================
+   Background Pattern & Effects
+   =================================== */
+.bg-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 35px, var(--gold-primary) 35px, var(--gold-primary) 36px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--gold-primary) 35px, var(--gold-primary) 36px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Steam Effects */
+.steam-effect {
+  position: fixed;
+  width: 100px;
+  height: 200px;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  filter: blur(20px);
+  animation: steam-rise 8s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.steam-1 {
+  left: 15%;
+  bottom: -100px;
+  animation-delay: 0s;
+}
+
+.steam-2 {
+  left: 50%;
+  bottom: -100px;
+  animation-delay: 2s;
+}
+
+.steam-3 {
+  right: 15%;
+  bottom: -100px;
+  animation-delay: 4s;
+}
+
+@keyframes steam-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-200px) scale(1.5) translateX(20px);
+  }
+  100% {
+    transform: translateY(-400px) scale(2) translateX(40px);
+    opacity: 0;
+  }
+}
+
+/* ===================================
+   Container & Layout
+   =================================== */
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================
+   Header & Logo
+   =================================== */
+.header {
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-container {
+  display: inline-block;
+}
+
+.logo {
+  max-width: 250px;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.logo-placeholder {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 3px solid var(--gold-primary);
+  border-radius: 4px;
+  background: rgba(212, 175, 55, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  letter-spacing: 0.2em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================================
+   Hero Section
+   =================================== */
+.hero {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ornament {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+  margin: var(--spacing-md) auto;
+  position: relative;
+  animation: shimmer 3s infinite;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '◆';
+  position: absolute;
+  color: var(--gold-primary);
+  font-size: 12px;
+  top: -5px;
+}
+
+.ornament::before {
+  left: -15px;
+}
+
+.ornament::after {
+  right: -15px;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin: var(--spacing-md) 0;
+  letter-spacing: 0.03em;
+  text-shadow: 
+    0 2px 10px rgba(212, 175, 55, 0.5),
+    0 4px 20px rgba(107, 24, 32, 0.3);
+  animation: titleGlow 2s ease-out 0.5s backwards;
+  line-height: 1.2;
+}
+
+@keyframes titleGlow {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.divider {
+  margin: var(--spacing-md) 0;
+}
+
+.divider-ornament {
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  display: inline-block;
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--cream);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-lg);
+  line-height: 1.8;
+  font-weight: 300;
+  opacity: 0.95;
+  animation: fadeIn 1s ease-out 0.8s backwards;
+}
+
+/* ===================================
+   Launch Section
+   =================================== */
+.launch-section {
+  margin: var(--spacing-xl) 0;
+  animation: fadeIn 1.2s ease-out 1s backwards;
+}
+
+.launch-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary));
+  border-radius: 50px;
+  margin-bottom: var(--spacing-md);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6);
+  }
+}
+
+.badge-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--maroon-deep);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.launch-message {
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.launched-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--gold-primary);
+  animation: celebrate 1s ease-out;
+}
+
+@keyframes celebrate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(212, 175, 55, 0.1);
+  border: 2px solid var(--gold-primary);
+  border-radius: 12px;
+  padding: var(--spacing-md) var(--spacing-sm);
+  min-width: 80px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.countdown-item:hover {
+  transform: translateY(-5px);
+  background: rgba(212, 175, 55, 0.2);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+}
+
+.countdown-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: var(--spacing-xs);
+}
+
+.countdown-separator {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold-primary);
+  opacity: 0.5;
+}
+
+/* ===================================
+   Email Signup Section
+   =================================== */
+.signup-section {
+  margin: var(--spacing-xl) 0;
+  animation: fadeIn 1.4s ease-out 1.2s backwards;
+}
+
+.signup-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.signup-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--cream);
+  margin-bottom: var(--spacing-md);
+  opacity: 0.9;
+}
+
+.signup-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.email-input {
+  flex: 1;
+  min-width: 250px;
+  padding: var(--spacing-md) var(--spacing-md);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: rgba(250, 247, 240, 0.95);
+  border: 2px solid var(--gold-primary);
+  border-radius: 8px;
+  color: var(--brown-rich);
+  transition: all 0.3s ease;
+}
+
+.email-input::placeholder {
+  color: var(--brown-light);
+  opacity: 0.7;
+}
+
+.email-input:focus {
+  outline: none;
+  background: var(--white-warm);
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+  transform: translateY(-2px);
+}
+
+.email-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submit-btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--maroon-deep);
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.6);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) .btn-arrow {
+  transform: translateX(5px);
+}
+
+.form-message {
+  min-height: 24px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-xs);
+  border-radius: 4px;
+  animation: fadeIn 0.3s ease;
+}
+
+.form-message.success {
+  color: var(--gold-light);
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--gold-primary);
+}
+
+.form-message.error {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.15);
+  border: 1px solid #ff6b6b;
+}
+
+/* ===================================
+   Footer
+   =================================== */
+.footer {
+  text-align: center;
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+  animation: fadeIn 1.6s ease-out 1.4s backwards;
+}
+
+.divider-line {
+  width: 150px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+  margin: 0 auto var(--spacing-md);
+}
+
+.footer-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--cream);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.1);
+  border: 2px solid var(--gold-primary);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: var(--gold-primary);
+  color: var(--maroon-deep);
+  transform: translateY(-5px) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.copyright {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--cream);
+  opacity: 0.7;
+  margin-top: var(--spacing-md);
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-sm);
+  }
+  
+  .logo {
+    max-width: 150px;
+  }
+  
+  .logo-text {
+    font-size: 1.8rem;
+  }
+  
+  .tagline {
+    font-size: 2.5rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+  }
+  
+  .countdown {
+    gap: 0.5rem;
+  }
+  
+  .countdown-item {
+    min-width: 60px;
+    padding: var(--spacing-sm) 0.5rem;
+  }
+  
+  .countdown-number {
+    font-size: 1.8rem;
+  }
+  
+  .countdown-separator {
+    font-size: 1.5rem;
+    display: none;
+  }
+  
+  .input-wrapper {
+    flex-direction: column;
+  }
+  
+  .email-input,
+  .submit-btn {
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  .submit-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    letter-spacing: 0.15em;
+  }
+  
+  .signup-title {
+    font-size: 1.5rem;
+  }
+  
+  .social-icons {
+    gap: var(--spacing-sm);
+  }
+  
+  .social-link {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .social-link svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero-logo {
+  width: 150px;
+  margin-bottom: 2rem;
+}
+
+.chai-image {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.chai-image img {
+  width: 100px; /* smaller size */
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
